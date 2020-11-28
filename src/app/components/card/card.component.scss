@@ -1,0 +1,18 @@
+.card-container {
+  width: 80vw;
+  height: 28vh;
+  background: #FCBF49;
+  border-radius: 13px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p.card-title {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 5vh;
+    color: #000000;
+  }
+}

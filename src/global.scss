@@ -24,3 +24,20 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+/* Color del ion-content global */
+ion-content {
+  --background: #003049 !important;
+}
+
+.rectangle {
+  position: absolute;
+  left: -15.23%;
+  right: -0.41%;
+  top: -10.14%;
+  bottom: 85.31%;
+
+  background: rgba(0, 0, 0, 0.4);
+  transform: rotate(-13.65deg);
+  z-index: -1;
+}

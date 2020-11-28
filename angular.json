@@ -33,6 +33,9 @@
             ],
             "styles": [
               {
+                "input": "node_modules/bulma/css/bulma.min.css"
+              },
+              {
                 "input": "src/theme/variables.scss"
               },
               {

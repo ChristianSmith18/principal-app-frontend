@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+  <div class="rectangle"></div>
+  <app-logo></app-logo>
+
+  <div class="bg-container">
+    <div class="card-container">
+      <h2>Ingresa tu rut</h2>
+      <input #rutInput class="input" type="tel" placeholder="Ej: 12345678-9" />
+      <button
+        class="button"
+        [ngClass]="{'is-loading': isLoading}"
+        (click)="checkRut()"
+      >
+        Entrar a la app
+      </button>
+    </div>
+    <p>¿Tienes problemas para ingresar? <a>Haz click aquí</a>.</p>
+  </div>
+
+  <!-- Shapes -->
+  <div class="elipse e-dark e-l-1"></div>
+  <div class="elipse e-yellow e-l-2"></div>
+
+  <div class="elipse e-dark e-r-1"></div>
+  <div class="elipse e-yellow e-r-2"></div>
+</ion-content>

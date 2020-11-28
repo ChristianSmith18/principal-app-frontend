@@ -1,0 +1,9 @@
+.cards-container {
+  width: 100%;
+  height: calc(83vh - 54px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-around;
+  justify-content: center;
+}

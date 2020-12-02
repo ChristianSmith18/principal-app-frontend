@@ -41,3 +41,8 @@ ion-content {
   transform: rotate(-13.65deg);
   z-index: -1;
 }
+
+ion-modal {
+  --min-height: 90vh !important;
+  --min-width: 90vw !important;
+}

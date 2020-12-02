@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { clean, validate } from 'rut.js';
-import { LoginService } from '../services/login.service';
+import { LoginService } from '@services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -47,8 +47,9 @@ export class LoginPage {
     const rut = Number(textCleaned.substring(0, textCleaned.length - 1));
 
     this._login.searchRut(rut).subscribe(
-      ({ ok }) => {
+      ({ ok, ...resp }) => {
         if (ok) {
+          localStorage.setItem('idrt', btoa(JSON.stringify(resp)));
           this.router.navigate(['tabs']);
         } else {
           this.presentErrorToast('El rut es inválido.');

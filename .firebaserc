@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "dashboardata": {
+      "hosting": {
+        "app": [
+          "dashboardata"
+        ]
+      }
+    }
+  }
+}

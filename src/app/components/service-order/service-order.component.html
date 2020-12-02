@@ -1,0 +1,119 @@
+<ion-content [fullscreen]="true">
+  <ion-button (click)="closeModal()">Cerrar</ion-button>
+  <div class="rectangle"></div>
+  <app-logo></app-logo>
+
+  <ion-slides *ngIf="showSlides" #slides [options]="slideOpts" mode="ios">
+    <ion-slide>
+      <app-forms
+        titleForm="Datos del Cliente"
+        [values]="customerForm"
+        [customerFields]="customerFields"
+        (formChange)="changeForm($event)"
+        (rutOrPatentChange)="syncData($event)"
+      ></app-forms>
+    </ion-slide>
+
+    <ion-slide>
+      <app-forms
+        titleForm="Datos del Vehiculo"
+        [values]="vehicleForm"
+        [customerFields]="vehicleFields"
+        (formChange)="changeForm($event)"
+        (rutOrPatentChange)="syncData($event)"
+      ></app-forms>
+    </ion-slide>
+
+    <ion-slide>
+      <app-forms
+        titleForm="Datos de Ingreso"
+        [values]="customerForm"
+        [customerFields]="customerFields"
+        [isImg]="true"
+        (textareaChange)="textareaValue = $event"
+        (imgLoadedChange)="imagesLoaded = $event"
+      ></app-forms>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="buttons are-medium">
+    <button *ngIf="showBackButton" class="button" (click)="backSlide()">
+      Atrás
+    </button>
+    <button *ngIf="!showEndButton" class="button" (click)="nextSlide()">
+      Siguiente
+    </button>
+    <button *ngIf="showEndButton" class="button" (click)="endSlide()">
+      Finalizar
+    </button>
+  </div>
+
+  <!-- This is the modal for errors -->
+  <div id="error-modal" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+      <h1 class="uk-modal-title" style="font-weight: 300">
+        Errores en el formulario!
+      </h1>
+      <div id="error-list"></div>
+      <p class="uk-text-right">
+        <button
+          class="uk-button uk-button-primary uk-modal-close"
+          type="button"
+        >
+          Entendido
+        </button>
+      </p>
+    </div>
+  </div>
+
+  <!-- This is the modal for send data -->
+  <div id="my-id" uk-modal>
+    <div class="uk-modal-dialog uk-margin-auto-vertical">
+      <button class="uk-modal-close-default" type="button" uk-close></button>
+      <div class="uk-modal-header">
+        <h2 class="uk-modal-title">Se necesita confirmación!</h2>
+      </div>
+      <div class="uk-modal-body" style="text-align: justify">
+        <p>
+          Estimado/a Sr(a). {{ user?.firstname | titlecase }}
+          {{ user?.lastname | titlecase }}, antes de enviar la orden de servicio
+          necesitamos su firma digital para finalizar el proceso.
+        </p>
+        <div class="uk-margin">
+          <input
+            class="uk-input"
+            type="password"
+            placeholder="Ingrese su firma digital aquí..."
+            style="background: #f0f1f1"
+            [(ngModel)]="secretKey"
+          />
+        </div>
+      </div>
+      <div class="uk-modal-footer uk-text-right">
+        <button
+          class="uk-button uk-button-default uk-modal-close"
+          type="button"
+        >
+          Cancelar
+        </button>
+        <button
+          class="uk-button uk-modal-close"
+          style="background: #fcbf49; color: #ffffff; margin-left: 10px"
+          type="button"
+          (click)="sendServiceOrder()"
+        >
+          Enviar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <ngx-spinner
+    bdColor="rgba(0, 0, 0, 0.8)"
+    size="medium"
+    color="#fff"
+    type="ball-clip-rotate-multiple"
+    [fullScreen]="true"
+    ><p style="color: white">Buscando cliente...</p></ngx-spinner
+  >
+</ion-content>

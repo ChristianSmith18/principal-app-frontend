@@ -1,0 +1,51 @@
+ion-button {
+  --background: #003049;
+  background: #003049;
+  --border-color: #003049;
+  border: unset;
+  color: #ffffff;
+  position: fixed;
+  top: 6px;
+  right: 6px;
+  padding: 0;
+  --color-activated: #e4e4e4;
+  --color-focused: #e4e4e4;
+  --color-hover: #e4e4e4;
+
+  &:hover {
+    color: #e4e4e4;
+  }
+}
+
+ion-slides {
+  height: calc(100vh - 120px);
+}
+
+ion-slide {
+  display: block !important;
+  overflow-y: scroll;
+}
+
+.buttons {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 1;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
+  .button {
+    min-width: 28vw;
+    background: #FCBF49;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    color: #000000;
+    border: unset;
+  }
+}

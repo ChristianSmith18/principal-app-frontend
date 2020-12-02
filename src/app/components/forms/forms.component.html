@@ -1,0 +1,83 @@
+<div *ngIf="!isImg" class="form-container" [formGroup]="values">
+  <h2>{{ titleForm }}</h2>
+
+  <div
+    *ngFor="let value of values.value | keys; let i = index"
+    class="field is-horizontal"
+  >
+    <div class="field-label is-normal">
+      <label class="label">{{ customerFields[i].name }}</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"
+            [type]="customerFields[i].type"
+            [placeholder]="customerFields[i].placeholder"
+            [value]="getValueField(value.key)"
+            (change)="change(value.key, $event.srcElement.value)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 100%; height: 75px"></div>
+</div>
+
+<div *ngIf="isImg" class="form-container" [formGroup]="values">
+  <h2>{{ titleForm }}</h2>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Motivo</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <textarea
+            class="textarea"
+            placeholder="Ingrese el motivo de ingreso..."
+            (change)="changeTextarea($event)"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Imágenes</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <div class="images-container">
+            <div class="my-image square-box-img" (click)="getCapture(0)">
+              <ion-icon name="add-circle"></ion-icon>
+            </div>
+            <div class="my-image square-box-img" (click)="getCapture(1)">
+              <ion-icon name="add-circle"></ion-icon>
+            </div>
+          </div>
+          <div class="images-container">
+            <div class="my-image square-box-img" (click)="getCapture(2)">
+              <ion-icon name="add-circle"></ion-icon>
+            </div>
+            <div class="my-image square-box-img" (click)="getCapture(3)">
+              <ion-icon name="add-circle"></ion-icon>
+            </div>
+          </div>
+          <div class="images-container">
+            <div class="my-image square-box-img" (click)="getCapture(4)">
+              <ion-icon name="add-circle"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 100%; height: 75px"></div>
+</div>

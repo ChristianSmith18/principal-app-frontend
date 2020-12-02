@@ -3,8 +3,10 @@
   <app-logo></app-logo>
 
   <div class="cards-container">
-    <app-card titleContent="ingresar orden"></app-card>
-
+    <app-card
+      titleContent="ingresar orden"
+      (click)="openFormsModal()"
+    ></app-card>
     <app-card titleContent="pendientes"></app-card>
   </div>
 </ion-content>

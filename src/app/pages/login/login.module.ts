@@ -9,7 +9,7 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 
-import { LogoComponent } from '../components/logo/logo.component';
+import { ComponentsModule } from '@src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -18,7 +18,8 @@ import { LogoComponent } from '../components/logo/logo.component';
     IonicModule,
     LoginPageRoutingModule,
     HttpClientModule,
+    ComponentsModule,
   ],
-  declarations: [LoginPage, LogoComponent],
+  declarations: [LoginPage],
 })
 export class LoginPageModule {}

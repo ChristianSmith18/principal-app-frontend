@@ -1,0 +1,94 @@
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+.is-horizontal {
+  margin-bottom: 5px;
+}
+
+label {
+  color: #fff;
+}
+
+input,
+textarea {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.75);
+  border: unset;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+  }
+}
+
+textarea {
+  resize: none;
+  height: 28vh;
+}
+
+.images-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+
+  .square-box-with-img {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    width: 40vw;
+    height: 40vw;
+    margin: 0 10px 20px 10px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    * {
+      display: none;
+    }
+  }
+
+  .square-box-img {
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    width: 40vw;
+    height: 40vw;
+    margin: 0 10px 20px 10px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &::before {
+      content: 'Parte del Vehículo';
+      position: absolute;
+      bottom: 6%;
+      font-family: 'Lato', sans-serif;
+      color: #b1b1b1;
+    }
+
+    ion-icon {
+      font-size: 15vw;
+      color: rgba(255, 255, 255, 0.55);
+    }
+  }
+}
+
+.form-container {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  padding: 0 20px 20px 20px;
+
+  h2 {
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.75);
+  }
+}

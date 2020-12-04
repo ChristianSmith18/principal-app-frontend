@@ -283,7 +283,12 @@ export class ServiceOrderComponent implements AfterViewInit {
       };
 
       const customer = {
-        rut: this.customerForm.value.rut,
+        rut: Number(
+          clean(this.customerForm.value.rut).substring(
+            0,
+            clean(this.customerForm.value.rut).length - 1
+          )
+        ),
         firstname: this.customerForm.value.firstname,
         lastname: this.customerForm.value.lastname,
         phonenumber: this.customerForm.value.phonenumber,
@@ -340,6 +345,7 @@ export class ServiceOrderComponent implements AfterViewInit {
         }
       },
       (err) => {
+        console.log(err);
         this.presentErrorToast(
           'Hubo un problema al crear la orden de servicio:\t' +
             JSON.stringify(err)

@@ -1,12 +1,14 @@
+import { SOBody } from './../../services/service-order.service';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonSlides, ModalController } from '@ionic/angular';
+import { IonSlides, ModalController, ToastController } from '@ionic/angular';
 import { clean, validate } from 'rut.js';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 import { User } from '@services/login.service';
 import { CustomerService, Vehicle } from '@services/customer.service';
 import { RutOrPatent } from '@components/forms/forms.component';
+import { ServiceOrderService } from '@src/app/services/service-order.service';
 declare var UIkit: any;
 
 @Component({
@@ -138,7 +140,9 @@ export class ServiceOrderComponent implements AfterViewInit {
     private modalController: ModalController,
     private fb: FormBuilder,
     private _customer: CustomerService,
-    private spinner: NgxSpinnerService
+    private _serviceOrder: ServiceOrderService,
+    private spinner: NgxSpinnerService,
+    private toastController: ToastController
   ) {}
 
   ngAfterViewInit(): void {
@@ -300,6 +304,21 @@ export class ServiceOrderComponent implements AfterViewInit {
     }
   }
 
+  private async presentErrorToast(message: string) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 3000,
+      position: 'top',
+      buttons: [
+        {
+          text: 'Cerrar',
+          role: 'cancel',
+        },
+      ],
+    });
+    toast.present();
+  }
+
   public sendServiceOrder() {
     const finalObject = {
       ...this.myOrder,
@@ -309,7 +328,24 @@ export class ServiceOrderComponent implements AfterViewInit {
       },
     };
 
-    console.log(finalObject);
+    this._serviceOrder.createServiceOrder(finalObject as SOBody).subscribe(
+      ({ ok }) => {
+        if (ok) {
+          this.presentErrorToast('Se creó la orden de servicio correctamente!');
+          this.closeModal();
+        } else {
+          this.presentErrorToast(
+            'Hubo un problema al crear la orden de servicio!'
+          );
+        }
+      },
+      (err) => {
+        this.presentErrorToast(
+          'Hubo un problema al crear la orden de servicio:\t' +
+            JSON.stringify(err)
+        );
+      }
+    );
   }
 
   private async validateButtons() {

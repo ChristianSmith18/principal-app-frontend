@@ -185,6 +185,7 @@ export class ServiceOrderComponent implements AfterViewInit {
               this.customerForm.patchValue({ ...customer, ...address });
               this.spinner.hide();
             }
+            this.spinner.hide();
           },
           (err) => {
             this.spinner.hide();
@@ -301,7 +302,12 @@ export class ServiceOrderComponent implements AfterViewInit {
         vehicle: this.vehicleForm.value,
         entry: {
           reason: this.textareaValue.trim(),
-          images: this.imagesLoaded,
+          images: [
+            'Imagen de ejemplo 1',
+            'Imagen de ejemplo 2',
+            'Imagen de ejemplo 3',
+            'Imagen de ejemplo 4',
+          ],
         },
       };
       this.myOrder = finalObject;

@@ -6,7 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./section.component.scss'],
 })
 export class SectionComponent implements OnInit {
-  @Input() titleContent = "sin titulo"; description="sin descripcion"
+  @Input() 
+  titleContent = "sin titulo"; 
+  description="sin descripcion";
+
   constructor() { }
 
   ngOnInit() {}

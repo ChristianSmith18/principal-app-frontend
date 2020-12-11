@@ -10,6 +10,7 @@ import { LogoComponent } from './logo/logo.component';
 import { CardComponent } from './card/card.component';
 import { FormsComponent } from './forms/forms.component';
 import { ServiceOrderComponent } from './service-order/service-order.component';
+import { SectionComponent } from './section/section.component';
 
 const c = [
   LogoComponent,
@@ -17,6 +18,7 @@ const c = [
   FormsComponent,
   KeysPipe,
   ServiceOrderComponent,
+  SectionComponent,
 ];
 
 @NgModule({

@@ -1,13 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Ajustes </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="rectangle"></div>
+  <app-logo></app-logo>
+
+  <div class="profile-container">
+    <p class="profile-name">Nombre Apellido</p>
+    <p class="profile-rol">Administrador</p>
+  </div>
+  <div class="img-container">
+    <img src="assets/user.png" alt="" />
+  </div>
+  <app-section titleContent="Perfil"></app-section>
+
+  <div class="img-container">
+    <img src="assets/setting.png" alt="" />
+  </div>
+  <app-section titleContent="Administrar"></app-section>
+
+  <div class="img-container">
+    <img src="assets/web.png" alt="" />
+  </div>
+  <app-section titleContent="Ir a TallerPrincipal.cl"></app-section>
+
+  <div class="img-container">
+    <img src="assets/help.png" alt="" />
+  </div>
+  <app-section titleContent="Ayuda"></app-section>
 </ion-content>

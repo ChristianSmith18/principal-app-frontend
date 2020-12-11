@@ -1,4 +1,9 @@
-<div class= "section-container">
-  <p class= "section-title">{{ titleContent | titlecase }}</p>
-  <p class= "section-description">Sin descripcion</p>
-</div>
+<ion-item button mode="md" detail>
+  <ion-thumbnail slot="start">
+    <img [src]="imgUrl" />
+  </ion-thumbnail>
+  <ion-label>
+    <h3>{{ titleContent | titlecase }}</h3>
+    <p>{{ description }}</p>
+  </ion-label>
+</ion-item>

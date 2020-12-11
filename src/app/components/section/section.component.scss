@@ -1,26 +1,32 @@
-.section-container{
-    //Ancho, Alto, color
+ion-item {
     width: 100vw;
-    height: 10vh;
+    --background: rgba(#000000, 0.4);
     background: rgba(#000000, 0.4);
     margin-bottom: 1vh;
 
-    p.section-title, p.section-description{
-    font-family: 'Lato', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 2.3vh;
-    color: #ffffff;
-    position: absolute;
-    left: 14vw;
-    margin-top: 1.5vh;
-}
+    ion-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    p.section-description{
-        font-size: 2vh;
-        margin-top: 5.5vh;
-        margin-block-end: 1.5vh;
-        color: rgba(#ffffff, 0.7);
+        img {
+            width: 85%;
+            opacity: .6;
+        }
+    }
 
+    ion-label {
+
+        h3,
+        p {
+            font-family: 'Lato', sans-serif;
+            font-size: 2.3vh;
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 2vh;
+            color: rgba(#ffffff, 0.7);
+        }
     }
 }

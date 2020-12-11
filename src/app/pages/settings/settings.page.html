@@ -3,26 +3,19 @@
   <app-logo></app-logo>
 
   <div class="profile-container">
-    <p class="profile-name">Nombre Apellido</p>
-    <p class="profile-rol">Administrador</p>
+    <p class="profile-name">{{ user.firstname }} {{ user.lastname }}</p>
+    <p class="profile-rol">
+      {{ (user.role === 'USER_ROLE') ? 'Trabajador': 'Administrador' }}
+    </p>
   </div>
-  <div class="img-container">
-    <img src="assets/user.png" alt="" />
-  </div>
-  <app-section titleContent="Perfil"></app-section>
 
-  <div class="img-container">
-    <img src="assets/setting.png" alt="" />
-  </div>
-  <app-section titleContent="Administrar"></app-section>
-
-  <div class="img-container">
-    <img src="assets/web.png" alt="" />
-  </div>
-  <app-section titleContent="Ir a TallerPrincipal.cl"></app-section>
-
-  <div class="img-container">
-    <img src="assets/help.png" alt="" />
-  </div>
-  <app-section titleContent="Ayuda"></app-section>
+  <ng-container *ngFor="let option of options; let i = index">
+    <app-section
+      *ngIf="(i === 1 && user.role === 'ADMIN_ROLE') || i !== 1"
+      [titleContent]="option.titleContent"
+      [imgUrl]="option.imgUrl"
+      [description]="option.description"
+      (click)="doSomething(i)"
+    ></app-section>
+  </ng-container>
 </ion-content>
